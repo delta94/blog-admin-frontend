@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    .post-list,
+    & > div {
+        width: 45%;
+    }
+    .post-list .post {
+        background-color: lightblue;
+        margin: 1em 0;
+        padding: 1em;
+        h2 {
+            padding: 0.5em 0;
+        }
+        .date {
+            font-weight: bold;
+        }
+        p:last-child {
+            margin: 1em 0;
+            font-weight: bold;
+        }
+    }
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+}
