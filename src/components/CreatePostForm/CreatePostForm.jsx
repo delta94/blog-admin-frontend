@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RadioInput from './RadioInput';
+import authHeader from '../../services/authHeader';
 
 export default function CreatePostForm() {
     const [title, setTitle] = useState('');
@@ -7,22 +8,25 @@ export default function CreatePostForm() {
     const [published, setPublished] = useState(true);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = {
-            title,
-            text,
-            published,
-        };
-
-        const request = await fetch('http://localhost:4000/api/post/create', {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            mode: 'cors',
-            body: JSON.stringify(formData),
-        });
-
-        const response = await request.json();
-        console.log(response);
+        try {
+            e.preventDefault();
+            const formData = {
+                title,
+                text,
+                published,
+            };
+            const request = await fetch('http://localhost:4000/api/post/create', {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+                mode: 'cors',
+                body: JSON.stringify(formData),
+            });
+            console.log(request);
+            const response = await request.json();
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

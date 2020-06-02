@@ -5,10 +5,6 @@
 }
 
 #root {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
     .post-list,
     & > div {
         width: 45%;
@@ -33,4 +29,15 @@
 .create-form {
     display: flex;
     flex-direction: column;
+}
+
+header {
+    background-color: red;
+    width: 100%;
+    ul {
+        list-style: none;
+        display: flex;
+        width: 40%;
+        justify-content: space-around;
+    }
 }
