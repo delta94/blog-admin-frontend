@@ -9,7 +9,6 @@ export default function LogInForm() {
     const history = useHistory();
     const logIn = async (e) => {
         e.preventDefault();
-        console.log(username, password);
         const request = await fetch('http://localhost:4000/api/log-in', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -17,14 +16,12 @@ export default function LogInForm() {
             body: JSON.stringify({ username, password }),
         });
         const currentUser = await request.json();
-        console.log(currentUser);
         if (currentUser.token) {
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
             history.push('/home');
             window.location.reload();
             return;
         }
-        console.log(localStorage);
         setError(currentUser);
         setPassword('');
     };
