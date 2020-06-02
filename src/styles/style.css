@@ -53,4 +53,34 @@ header ul {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+
+.publish-unpublish-btn, .unpublish-wrapper button, .publish-wrapper button {
+  font-weight: bold;
+  border: 1px solid purple;
+  padding: 0.5em;
+}
+
+.unpublish-wrapper {
+  font-weight: bold;
+}
+
+.unpublish-wrapper p {
+  color: green;
+}
+
+.unpublish-wrapper button {
+  color: red;
+}
+
+.publish-wrapper {
+  font-weight: bold;
+}
+
+.publish-wrapper p {
+  color: red;
+}
+
+.publish-wrapper button {
+  color: green;
+}
 /*# sourceMappingURL=style.css.map */

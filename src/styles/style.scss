@@ -41,3 +41,31 @@ header {
         justify-content: space-around;
     }
 }
+
+.publish-unpublish-btn {
+    font-weight: bold;
+    border: 1px solid purple;
+    padding: 0.5em;
+}
+
+.unpublish-wrapper {
+    font-weight: bold;
+    p {
+        color: green;
+    }
+    button {
+        color: red;
+        @extend .publish-unpublish-btn;
+    }
+}
+
+.publish-wrapper {
+    font-weight: bold;
+    p {
+        color: red;
+    }
+    button {
+        color: green;
+        @extend .publish-unpublish-btn;
+    }
+}

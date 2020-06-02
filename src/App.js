@@ -11,8 +11,6 @@ import { useHistory } from 'react-router-dom';
 function App() {
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
     const history = useHistory();
-    console.log(currentUser);
-
     const handleLogOut = () => {
         setCurrentUser('');
         auth.logOut();

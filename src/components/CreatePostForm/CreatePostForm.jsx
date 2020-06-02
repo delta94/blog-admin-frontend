@@ -21,7 +21,6 @@ export default function CreatePostForm() {
                 mode: 'cors',
                 body: JSON.stringify(formData),
             });
-            console.log(request);
             const response = await request.json();
             console.log(response);
         } catch (error) {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
-import auth from '../../services/auth';
 
 export default function PostList({ currentUser, handleLogOut }) {
     const [posts, setPosts] = useState([]);
@@ -25,6 +24,7 @@ export default function PostList({ currentUser, handleLogOut }) {
                         last_update={post.last_update}
                         published={post.published}
                         key={post._id}
+                        _id={post._id}
                     />
                 ))}
             </section>
