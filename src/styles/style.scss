@@ -8,6 +8,7 @@
     .post-list,
     & > div {
         width: 45%;
+        margin: 0 auto;
     }
     .post-list .post {
         background-color: lightblue;
@@ -42,30 +43,41 @@ header {
     }
 }
 
-.publish-unpublish-btn {
+h2 {
+    text-align: center;
+}
+
+.post-btns {
     font-weight: bold;
     border: 1px solid purple;
     padding: 0.5em;
+    cursor: pointer;
 }
-
-.unpublish-wrapper {
-    font-weight: bold;
-    p {
-        color: green;
+.action-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .edit-btn {
+        @extend .post-btns;
     }
-    button {
-        color: red;
-        @extend .publish-unpublish-btn;
+    .unpublish-wrapper {
+        font-weight: bold;
+        p {
+            color: green;
+        }
+        button {
+            color: red;
+            @extend .post-btns;
+        }
     }
-}
-
-.publish-wrapper {
-    font-weight: bold;
-    p {
-        color: red;
-    }
-    button {
-        color: green;
-        @extend .publish-unpublish-btn;
+    .publish-wrapper {
+        font-weight: bold;
+        p {
+            color: red;
+        }
+        button {
+            color: green;
+            @extend .post-btns;
+        }
     }
 }

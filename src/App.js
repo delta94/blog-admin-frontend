@@ -44,6 +44,12 @@ function App() {
                         </ul>
                     </nav>
                 </header>
+                {currentUser ? (
+                    <h2>Hello {currentUser.username}. Here are your posts. </h2>
+                ) : (
+                    <h2>Log in to create and edit your posts.</h2>
+                )}
+
                 {!currentUser && <Route path="/log-in" component={LogInForm} />}
                 <Switch>
                     <Route
@@ -52,6 +58,11 @@ function App() {
                         render={(props) => <PostList {...props} currentUser={currentUser} />}
                     />
                     <Route path="/create" exact component={CreatePostForm} />;
+                    <Route
+                        path="/:id/edit"
+                        exact
+                        render={(props) => <CreatePostForm {...props} currentUser={currentUser} />}
+                    />
                 </Switch>
             </Router>
         </>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RadioInput from './RadioInput';
 import authHeader from '../../services/authHeader';
 
-export default function CreatePostForm() {
+export default function CreatePostForm({ location }) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [published, setPublished] = useState(true);
@@ -22,7 +22,6 @@ export default function CreatePostForm() {
                 body: JSON.stringify(formData),
             });
             const response = await request.json();
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -39,7 +38,7 @@ export default function CreatePostForm() {
                 type="text"
                 name="title"
                 required
-                value={title}
+                value={title || location.state.title}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <label htmlFor="text">Content: </label>
@@ -49,6 +48,7 @@ export default function CreatePostForm() {
                 rows="10"
                 required
                 onChange={(e) => setText(e.target.value)}
+                value={location.state.text}
             ></textarea>
             <label htmlFor="image">Image: </label>
             <input type="file" name="image" />

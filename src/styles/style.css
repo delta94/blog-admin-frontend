@@ -8,6 +8,7 @@
 #root .post-list,
 #root > div {
   width: 45%;
+  margin: 0 auto;
 }
 
 #root .post-list .post {
@@ -54,33 +55,50 @@ header ul {
       justify-content: space-around;
 }
 
-.publish-unpublish-btn, .unpublish-wrapper button, .publish-wrapper button {
+h2 {
+  text-align: center;
+}
+
+.post-btns, .action-btns .edit-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button {
   font-weight: bold;
   border: 1px solid purple;
   padding: 0.5em;
+  cursor: pointer;
 }
 
-.unpublish-wrapper {
+.action-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.action-btns .unpublish-wrapper {
   font-weight: bold;
 }
 
-.unpublish-wrapper p {
+.action-btns .unpublish-wrapper p {
   color: green;
 }
 
-.unpublish-wrapper button {
+.action-btns .unpublish-wrapper button {
   color: red;
 }
 
-.publish-wrapper {
+.action-btns .publish-wrapper {
   font-weight: bold;
 }
 
-.publish-wrapper p {
+.action-btns .publish-wrapper p {
   color: red;
 }
 
-.publish-wrapper button {
+.action-btns .publish-wrapper button {
   color: green;
 }
 /*# sourceMappingURL=style.css.map */

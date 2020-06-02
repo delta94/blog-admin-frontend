@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
 
-export default function PostList({ currentUser, handleLogOut }) {
+export default function PostList({ currentUser }) {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,6 @@ export default function PostList({ currentUser, handleLogOut }) {
     return (
         <>
             <section className="post-list">
-                {currentUser && <h2>Hello {currentUser.username}. Here are your posts </h2>}
                 {posts.map((post) => (
                     <Post
                         title={post.title}
@@ -25,6 +24,7 @@ export default function PostList({ currentUser, handleLogOut }) {
                         published={post.published}
                         key={post._id}
                         _id={post._id}
+                        currentUser={currentUser}
                     />
                 ))}
             </section>

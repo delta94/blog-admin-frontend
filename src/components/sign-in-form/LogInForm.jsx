@@ -28,7 +28,6 @@ export default function LogInForm() {
 
     return (
         <div>
-            <h2>Log in to create and edit your posts.</h2>
             <form className="log-in-form" onSubmit={(e) => logIn(e)}>
                 <label htmlFor="username">Username: </label>
                 <input
