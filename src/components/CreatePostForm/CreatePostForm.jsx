@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import RadioInput from './RadioInput';
 import authHeader from '../../services/authHeader';
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
+import { useHistory } from 'react-router-dom';
 
 export default function CreatePostForm({ location }) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [published, setPublished] = useState(true);
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         try {
@@ -22,10 +27,13 @@ export default function CreatePostForm({ location }) {
                 body: JSON.stringify(formData),
             });
             const response = await request.json();
+            history.push('/home');
         } catch (error) {
             console.log(error);
         }
     };
+
+    const editorRef = useRef();
 
     return (
         <form
@@ -38,18 +46,18 @@ export default function CreatePostForm({ location }) {
                 type="text"
                 name="title"
                 required
-                value={title || location.state.title}
+                value={location.state ? location.state.title : title}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <label htmlFor="text">Content: </label>
-            <textarea
-                name="text"
-                cols="30"
-                rows="10"
-                required
-                onChange={(e) => setText(e.target.value)}
-                value={location.state.text}
-            ></textarea>
+            <Editor
+                previewStyle="vertical"
+                initialEditType="markdown"
+                height="700px"
+                events={{ change: () => setText(editorRef.current.getInstance().getMarkdown()) }}
+                ref={editorRef}
+                initialValue={location.state.text}
+            />
             <label htmlFor="image">Image: </label>
             <input type="file" name="image" />
             <p>Publish?</p>
