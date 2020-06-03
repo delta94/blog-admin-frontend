@@ -13,7 +13,7 @@
 
 #root .post-list .post {
   background-color: lightblue;
-  margin: 1em 0;
+  margin: 1.5em 0 0 0;
   padding: 1em;
 }
 
@@ -59,7 +59,7 @@ h2 {
   text-align: center;
 }
 
-.post-btns, .action-btns .edit-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button {
+.post-btns, .action-btns .edit-btn, .action-btns .delete-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button {
   font-weight: bold;
   border: 1px solid purple;
   padding: 0.5em;
@@ -76,6 +76,20 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.action-btns .delete-edit-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 150px;
+}
+
+.action-btns .delete-btn {
+  background-color: red;
 }
 
 .action-btns .unpublish-wrapper {
@@ -100,5 +114,22 @@ h2 {
 
 .action-btns .publish-wrapper button {
   color: green;
+}
+
+.delete-confirmation {
+  background-color: red;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: -webkit-transform 150ms ease-in;
+  transition: -webkit-transform 150ms ease-in;
+  transition: transform 150ms ease-in;
+  transition: transform 150ms ease-in, -webkit-transform 150ms ease-in;
+}
+
+.delete-confirmation.active {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
 }
 /*# sourceMappingURL=style.css.map */
