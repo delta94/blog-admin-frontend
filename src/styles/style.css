@@ -59,7 +59,7 @@ h2 {
   text-align: center;
 }
 
-.post-btns, .action-btns .edit-btn, .action-btns .delete-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button {
+.post-btns, .action-btns .edit-btn, .action-btns .delete-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button, .delete-confirmation button {
   font-weight: bold;
   border: 1px solid purple;
   padding: 0.5em;

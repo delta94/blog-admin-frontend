@@ -27,6 +27,7 @@ export default function CreatePostForm({ location }) {
                 body: JSON.stringify(formData),
             });
             const response = await request.json();
+            console.log(response);
             history.push('/home');
         } catch (error) {
             console.log(error);
@@ -56,7 +57,7 @@ export default function CreatePostForm({ location }) {
                 height="700px"
                 events={{ change: () => setText(editorRef.current.getInstance().getMarkdown()) }}
                 ref={editorRef}
-                initialValue={location.state.text}
+                initialValue={location.state ? location.state.text : ''}
             />
             <label htmlFor="image">Image: </label>
             <input type="file" name="image" />

@@ -6,6 +6,7 @@ import PostList from './components/PostList/PostList';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import auth from './services/auth';
 import { useHistory } from 'react-router-dom';
+import EditPostForm from './components/CreatePostForm/EditPostForm';
 
 // render={(props) => <PropsPage {...props} title={`Props through render`} />}
 function App() {
@@ -14,7 +15,6 @@ function App() {
     const handleLogOut = () => {
         setCurrentUser('');
         auth.logOut();
-        history.push('/log-in');
     };
     return (
         <>
@@ -38,7 +38,7 @@ function App() {
                                 </>
                             ) : (
                                 <li>
-                                    <a href="/log-in">Log in</a>
+                                    <Link to="/log-in">Log in</Link>
                                 </li>
                             )}
                         </ul>
@@ -59,9 +59,9 @@ function App() {
                     />
                     <Route path="/create" exact component={CreatePostForm} />;
                     <Route
-                        path="/:id/edit"
+                        path="/post/:id/edit"
                         exact
-                        render={(props) => <CreatePostForm {...props} currentUser={currentUser} />}
+                        render={(props) => <EditPostForm {...props} />}
                     />
                 </Switch>
             </Router>

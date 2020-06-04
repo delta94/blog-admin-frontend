@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import authHeader from '../../services/authHeader';
-import PublishBtn from './PublishBtn';
 import DeleteConfirmation from './DeleteConfirmation';
 import { useHistory } from 'react-router-dom';
 import ActionBtns from './ActionBtns';
 
 export default function Post({ title, timestamp, last_update, published, _id, currentUser }) {
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const history = useHistory();
+
     const changePublishedStatus = async (e) => {
         e.preventDefault();
         try {
@@ -22,19 +23,18 @@ export default function Post({ title, timestamp, last_update, published, _id, cu
                 },
             );
             const response = await request.json();
+            console.log(response);
             window.location.reload();
         } catch (error) {
             console.log(error);
         }
     };
 
-    const history = useHistory();
-
     const editPost = async () => {
         const request = await fetch(`http://localhost:4000/api/post/${_id}`);
         const response = await request.json();
         const { title, text, published } = response;
-        history.push({ pathname: `/${_id}/edit`, state: { title, text, published } });
+        history.push({ pathname: `/post/${_id}/edit`, state: { title, text, published, _id } });
     };
 
     return (
