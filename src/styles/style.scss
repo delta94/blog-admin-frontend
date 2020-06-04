@@ -1,24 +1,62 @@
+$dark-blue: #1d3557;
+$medium-blue: #457b9d;
+$light-blue: #c7e3e4;
+$white: #f1faee;
+$red: #e63946;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    line-height: 1.5;
 }
 
 #root {
     .post-list,
     & > div {
         width: 45%;
+        min-width: 640px;
         margin: 0 auto;
     }
     .post-list .post {
-        background-color: lightblue;
-        margin: 1.5em 0 0 0;
+        background-color: $light-blue;
+        margin-top: 1.5em;
         padding: 1em;
-        h2 {
-            padding: 0.5em 0;
+        box-shadow: 0 2px 8px $medium-blue;
+        figure {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3em;
+            img {
+                width: 60%;
+                border: 1px solid black;
+                order: 2;
+            }
         }
-        .date {
-            font-weight: bold;
+        h2 {
+            text-decoration: underline;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            padding: 0;
+        }
+        .timestamps {
+            display: flex;
+            flex-direction: column;
+            & > * {
+                margin-bottom: 0.25em;
+            }
+            .date {
+                color: #333;
+                font-size: 0.9rem;
+                font-weight: bold;
+            }
+            .last-update {
+                font-size: 0.7rem;
+                color: rgb(87, 87, 87);
+                font-weight: normal;
+            }
         }
         p:last-child {
             margin: 1em 0;
@@ -33,30 +71,65 @@
 }
 
 header {
-    background-color: red;
+    background-color: $dark-blue;
     width: 100%;
+    padding: 1em 0;
+    box-shadow: 0 1px 4px $medium-blue;
     ul {
         list-style: none;
         display: flex;
         width: 40%;
+        min-width: 300px;
         justify-content: space-around;
+        align-items: center;
+        li a {
+            color: $white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            &:hover {
+                text-decoration: underline;
+            }
+            button {
+                @extend .post-btns;
+                background-color: $dark-blue;
+                color: $white;
+                border: none !important;
+                font-size: 1.2rem;
+                padding: 0 !important;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 
 h2 {
     text-align: center;
+    padding: 1em 0;
+    color: $dark-blue;
+    letter-spacing: 1px;
 }
 
 .post-btns {
     font-weight: bold;
-    border: 1px solid purple;
-    padding: 0.5em;
+    border: 2px solid $dark-blue;
+    padding: 0.4em;
     cursor: pointer;
+    min-width: 60px;
+    letter-spacing: 1px;
 }
 .action-btns {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    form {
+        margin-top: -29px;
+        p {
+            margin-bottom: 0.4em;
+        }
+    }
     .delete-edit-wrapper {
         display: flex;
         justify-content: space-between;
@@ -67,7 +140,8 @@ h2 {
     }
     .delete-btn {
         @extend .post-btns;
-        background-color: red;
+        background-color: $red;
+        color: $white;
     }
     .unpublish-wrapper {
         font-weight: bold;
@@ -75,32 +149,126 @@ h2 {
             color: green;
         }
         button {
-            color: red;
+            color: $white;
             @extend .post-btns;
+            background-color: $red;
         }
     }
     .publish-wrapper {
         font-weight: bold;
         p {
-            color: red;
+            color: $red;
+            margin-bottom: 0.4em;
         }
         button {
-            color: green;
+            color: $white;
             @extend .post-btns;
+            background-color: $dark-blue;
         }
     }
 }
 
 .delete-confirmation {
-    background-color: red;
+    background-color: #e6394791;
+    padding: 0.5em;
+    box-shadow: 0 3px 8px $medium-blue;
+    font-weight: bold;
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 150ms ease-in;
     button {
         @extend .post-btns;
+        margin-left: 2em;
     }
 }
 
 .delete-confirmation.active {
     transform: scaleY(1);
+}
+
+.log-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 300px;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 1em;
+    color: $dark-blue;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    background-color: $light-blue;
+    box-shadow: 0 2px 8px $medium-blue;
+    margin-top: 2em;
+    p {
+        color: $red;
+        font-weight: bold;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: -1em;
+    }
+    input {
+        border: 2px solid $dark-blue;
+        padding: 0.25em;
+    }
+    button {
+        @extend .post-btns;
+        background-color: $dark-blue;
+        color: $white;
+    }
+}
+
+.create-form {
+    @extend .log-in-form;
+    min-width: 95%;
+    margin: 0 auto;
+    label {
+        margin: 1em 0 0 0;
+    }
+    input:first-of-type {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    input[type='file'] {
+        border: none;
+    }
+    .radio-btns {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2.5em 0;
+        justify-content: space-around;
+        align-items: center;
+        label {
+            margin: 0;
+        }
+        p {
+            width: 100%;
+            color: $dark-blue;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        div {
+            width: 20%;
+            display: flex;
+            justify-content: space-around;
+            background-color: $medium-blue;
+            color: $white;
+            box-shadow: 0 2px 8px $dark-blue;
+            input:checked {
+                background-color: $dark-blue;
+            }
+        }
+    }
+}
+
+.tui-editor-defaultUI {
+    border: 2px solid $dark-blue !important;
+    background-color: white !important;
+    .te-editor-section {
+        border-top: 2px solid $dark-blue;
+    }
+    .te-md-splitter {
+        border-left: 2px solid $dark-blue !important;
+    }
 }

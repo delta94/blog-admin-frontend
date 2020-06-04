@@ -61,11 +61,20 @@ export default function CreatePostForm({ location }) {
             />
             <label htmlFor="image">Image: </label>
             <input type="file" name="image" />
-            <p>Publish?</p>
-            <label htmlFor="published">Yes</label>
-            <RadioInput value={'true'} handleChange={(e) => setPublished(e.target.value)} />
-            <label htmlFor="published">No</label>
-            <RadioInput value={'false'} handleChange={(e) => setPublished(e.target.value)} />
+            <div className="radio-btns">
+                <p>Publish?</p>
+                <div>
+                    <label htmlFor="published">Yes</label>
+                    <RadioInput value={'true'} handleChange={(e) => setPublished(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="published">No</label>
+                    <RadioInput
+                        value={'false'}
+                        handleChange={(e) => setPublished(e.target.value)}
+                    />
+                </div>
+            </div>
             <button>Create Post</button>
         </form>
     );

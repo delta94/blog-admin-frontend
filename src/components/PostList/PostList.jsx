@@ -25,6 +25,7 @@ export default function PostList({ currentUser }) {
                         key={post._id}
                         _id={post._id}
                         currentUser={currentUser}
+                        image={post.image}
                     />
                 ))}
             </section>

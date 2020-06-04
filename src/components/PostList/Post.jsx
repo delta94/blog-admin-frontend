@@ -4,7 +4,15 @@ import DeleteConfirmation from './DeleteConfirmation';
 import { useHistory } from 'react-router-dom';
 import ActionBtns from './ActionBtns';
 
-export default function Post({ title, timestamp, last_update, published, _id, currentUser }) {
+export default function Post({
+    title,
+    timestamp,
+    last_update,
+    published,
+    _id,
+    currentUser,
+    image,
+}) {
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const history = useHistory();
 
@@ -41,13 +49,17 @@ export default function Post({ title, timestamp, last_update, published, _id, cu
         <>
             <article className="post">
                 <h2>{title}</h2>
-                <p>
-                    <span className="date">Created on {timestamp} </span>
-                    <span className="last-update">
-                        | Last updated on:{' '}
-                        {last_update || 'This post has not received any updates.'}
-                    </span>
-                </p>
+                <figure>
+                    <img src={image} alt="" />
+                    <figcaption>
+                        <p className="timestamps">
+                            <span className="date">Created on {timestamp} </span>
+                            <span className="last-update">
+                                Last updated on: {last_update || 'No updates yet.'}
+                            </span>
+                        </p>
+                    </figcaption>
+                </figure>
                 {currentUser && (
                     <ActionBtns
                         published={published}

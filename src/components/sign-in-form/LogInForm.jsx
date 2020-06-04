@@ -27,8 +27,9 @@ export default function LogInForm() {
     };
 
     return (
-        <div>
+        <>
             <form className="log-in-form" onSubmit={(e) => logIn(e)}>
+                <p>{error.message}</p>
                 <label htmlFor="username">Username: </label>
                 <input
                     type="text"
@@ -47,7 +48,6 @@ export default function LogInForm() {
                 />
                 <button>Log in </button>
             </form>
-            <p>{error.message}</p>
-        </div>
+        </>
     );
 }
