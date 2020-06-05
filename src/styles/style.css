@@ -6,6 +6,11 @@
   line-height: 1.5;
 }
 
+body {
+  padding-bottom: 3em;
+  background-color: whitesmoke;
+}
+
 #root .post-list,
 #root > div {
   width: 45%;
@@ -39,11 +44,16 @@
 }
 
 #root .post-list .post figure img {
-  width: 60%;
+  width: 85%;
   border: 1px solid black;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 2px 6px #457b9d;
+          box-shadow: 0 2px 6px #457b9d;
+  max-height: 300px;
 }
 
 #root .post-list .post h2 {
@@ -82,16 +92,6 @@
 #root .post-list .post p:last-child {
   margin: 1em 0;
   font-weight: bold;
-}
-
-.create-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 header {
@@ -133,6 +133,8 @@ header ul li a button {
   border: none !important;
   font-size: 1.2rem;
   padding: 0 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 header ul li a button:hover {
@@ -153,6 +155,8 @@ h2 {
   cursor: pointer;
   min-width: 60px;
   letter-spacing: 1px;
+  -webkit-box-shadow: 0 1px 6px #457b9d;
+          box-shadow: 0 1px 6px #457b9d;
 }
 
 .action-btns {
@@ -218,10 +222,12 @@ h2 {
 }
 
 .delete-confirmation {
+  margin-top: 1em;
+  margin-bottom: 2em;
   background-color: #e6394791;
   padding: 0.5em;
-  -webkit-box-shadow: 0 3px 8px #457b9d;
-          box-shadow: 0 3px 8px #457b9d;
+  -webkit-box-shadow: 0 2px 8px #457b9d;
+          box-shadow: 0 2px 8px #457b9d;
   font-weight: bold;
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
@@ -256,7 +262,7 @@ h2 {
   max-width: 300px;
   min-height: 350px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 1em 2em;
   color: #1d3557;
   letter-spacing: 1px;
   font-size: 1.1rem;
@@ -346,6 +352,17 @@ h2 {
   background-color: #1d3557;
 }
 
+.create-form .image-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.create-form .image-container img {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
 .tui-editor-defaultUI {
   border: 2px solid #1d3557 !important;
   background-color: white !important;
@@ -357,5 +374,25 @@ h2 {
 
 .tui-editor-defaultUI .te-md-splitter {
   border-left: 2px solid #1d3557 !important;
+}
+
+.errors {
+  width: 95%;
+  margin: 2em auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.errors li {
+  font-weight: bold;
+  color: #e63946;
 }
 /*# sourceMappingURL=style.css.map */
