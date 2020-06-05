@@ -10,7 +10,6 @@ export default function DeleteConfirmation({ showDeleteConfirm, handleClick, pos
             headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
         });
         const response = await request.json();
-        console.log(response);
         setResponseMsg(response.message);
     };
     return (
