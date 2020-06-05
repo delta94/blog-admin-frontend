@@ -7,6 +7,7 @@ export default function EditPostForm({ location }) {
     const [title, setTitle] = useState(location.state.title || '');
     const [text, setText] = useState(location.state.text || '');
     const [published, setPublished] = useState(location.state.published);
+    const [image, setImage] = useState(location.state.image || '');
     const [message, setMessage] = useState('');
     const history = useHistory();
 
@@ -39,6 +40,8 @@ export default function EditPostForm({ location }) {
                 setTitle={setTitle}
                 setText={setText}
                 setPublished={setPublished}
+                setImage={setImage}
+                image={image}
                 btnText={'Edit Post'}
             />
         </>

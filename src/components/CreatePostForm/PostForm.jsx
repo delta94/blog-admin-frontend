@@ -10,9 +10,18 @@ export default function PostForm({
     setTitle,
     setText,
     setPublished,
+    setImage,
+    image,
     btnText,
 }) {
     const editorRef = useRef();
+    const handleFile = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setImage(reader.result);
+        };
+    };
     return (
         <form
             className="create-form"
@@ -37,7 +46,10 @@ export default function PostForm({
                 initialValue={state ? state.text : ''}
             />
             <label htmlFor="image">Image: </label>
-            <input type="file" name="image" />
+            <input type="file" name="image" onChange={(e) => handleFile(e)} />
+            <div className="image-container">
+                <img src={image} alt="" />
+            </div>
             <div className="radio-btns">
                 <p>Publish?</p>
                 <div>

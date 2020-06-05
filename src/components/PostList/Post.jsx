@@ -42,7 +42,10 @@ export default function Post({
         const request = await fetch(`http://localhost:4000/api/post/${_id}`);
         const response = await request.json();
         const { title, text, published } = response;
-        history.push({ pathname: `/post/${_id}/edit`, state: { title, text, published, _id } });
+        history.push({
+            pathname: `/post/${_id}/edit`,
+            state: { title, text, published, _id, image },
+        });
     };
 
     return (
