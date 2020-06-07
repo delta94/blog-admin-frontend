@@ -6,11 +6,15 @@ export default function ActionBtns({
     changePublishedStatus,
     editPost,
     setShowDeleteConfirm,
+    openComments,
 }) {
     return (
         <div className="action-btns">
             <PublishBtn published={published} handleSubmit={changePublishedStatus} />
             <div className="delete-edit-wrapper">
+                <button type="button" className="edit-btn" onClick={openComments}>
+                    See comments
+                </button>
                 <button type="button" className="edit-btn" onClick={editPost}>
                     Edit
                 </button>

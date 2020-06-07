@@ -19,7 +19,7 @@ export default function Post({
     const changePublishedStatus = async (e) => {
         e.preventDefault();
         try {
-            const request = await fetch(
+            const response = await fetch(
                 `http://localhost:4000/api/post/${_id}/update-published-status`,
                 {
                     method: 'put',
@@ -30,8 +30,8 @@ export default function Post({
                     }),
                 },
             );
-            const response = await request.json();
-            console.log(response);
+            const data = await response.json();
+            console.log(data);
             window.location.reload();
         } catch (error) {
             console.log(error);
@@ -39,13 +39,19 @@ export default function Post({
     };
 
     const editPost = async () => {
-        const request = await fetch(`http://localhost:4000/api/post/${_id}`);
-        const response = await request.json();
-        const { title, text, published } = response;
+        const response = await fetch(`http://localhost:4000/api/post/${_id}`);
+        const data = await response.json();
+        const { title, text, published } = data;
         history.push({
             pathname: `/post/${_id}/edit`,
             state: { title, text, published, _id, image },
         });
+    };
+
+    const openComments = async () => {
+        const response = await fetch(`http://localhost:4000/api/post/${_id}/comments`);
+        const comments = await response.json();
+        history.push({ pathname: `/post/${_id}/comments`, state: { comments } });
     };
 
     return (
@@ -69,6 +75,7 @@ export default function Post({
                         changePublishedStatus={changePublishedStatus}
                         editPost={editPost}
                         setShowDeleteConfirm={setShowDeleteConfirm}
+                        openComments={openComments}
                     />
                 )}
             </article>

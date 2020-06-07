@@ -3,15 +3,14 @@ import './styles/style.css';
 import LogInForm from './components/sign-in-form/LogInForm';
 import CreatePostForm from './components/CreatePostForm/CreatePostForm';
 import PostList from './components/PostList/PostList';
+import Comments from './components/PostList/Comments';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import auth from './services/auth';
-import { useHistory } from 'react-router-dom';
 import EditPostForm from './components/CreatePostForm/EditPostForm';
 
 // render={(props) => <PropsPage {...props} title={`Props through render`} />}
 function App() {
     const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
-    const history = useHistory();
     const handleLogOut = () => {
         setCurrentUser('');
         auth.logOut();
@@ -63,6 +62,7 @@ function App() {
                         exact
                         render={(props) => <EditPostForm {...props} />}
                     />
+                    <Route path="/post/:id/comments" exact component={Comments} />
                 </Switch>
             </Router>
         </>

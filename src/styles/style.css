@@ -187,6 +187,7 @@ h2 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   min-width: 150px;
+  width: 50%;
 }
 
 .action-btns .delete-btn {
@@ -394,5 +395,59 @@ h2 {
 .errors li {
   font-weight: bold;
   color: #e63946;
+}
+
+.comments-section {
+  margin: 0 auto;
+  padding: 2.5em;
+  max-width: 600px;
+  background-color: #c7e3e4;
+  color: #f1faee;
+  text-shadow: 0 0 2px black;
+  -webkit-box-shadow: 0 2px 4px #1d3557;
+          box-shadow: 0 2px 4px #1d3557;
+  border-radius: 5px;
+}
+
+.comments-section .comment {
+  margin-bottom: 3em;
+  background-color: #457b9d;
+  padding: 1em;
+  -webkit-box-shadow: 0 2px 6px #1d3557;
+          box-shadow: 0 2px 6px #1d3557;
+  border-radius: 5px;
+}
+
+.comments-section .comment:last-child {
+  margin-bottom: 0;
+}
+
+.comments-section .comment div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #c7e3e4;
+  padding-bottom: 0.5em;
+}
+
+.comments-section .comment div:first-child h5 {
+  font-size: 1.2rem;
+}
+
+.comments-section .comment div:first-child .date {
+  font-size: 0.8rem;
+}
+
+.comments-section .comment p {
+  color: black;
+  text-shadow: none;
+  font-size: 1.1rem;
+  padding: 0.3em 0;
 }
 /*# sourceMappingURL=style.css.map */
