@@ -1,37 +1,72 @@
 import React, { useState } from 'react';
 import authHeader from '../../services/authHeader';
 
-export default function Comment(postId, commentId, username, timestamp, text) {
-    console.log(postId, username, text, timestamp);
-    const editBtn = async (commentId) => {
+export default function Comment({ postId, commentId, username, timestamp, text }) {
+    const [deletedMsg, setdeletedMsg] = useState('');
+    const [comment, setComment] = useState('');
+    const [showEditForm, setShowEditForm] = useState(false);
+    const editComment = async (e) => {
+        e.preventDefault();
         const response = await fetch(
             `http://localhost:4000/api/post/${postId}/comments/${commentId}`,
             {
                 method: 'put',
                 mode: 'cors',
                 headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+                body: JSON.stringify({ comment }),
             },
         );
         const data = await response.json();
-        console.log(data);
+        setComment(data.text);
+        setShowEditForm(!showEditForm);
     };
 
-    const deleteBtn = async () => {};
+    const deleteBtn = async () => {
+        try {
+            const response = await fetch(
+                `http://localhost:4000/api/post/${postId}/comments/${commentId}`,
+                {
+                    method: 'delete',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+                },
+            );
+            const data = await response.json();
+            setdeletedMsg(data.message);
+        } catch (err) {
+            console.log(err);
+        }
+    };
     return (
         <article className="comment">
             <div>
                 <h5>{username}</h5>
                 <span className="date">{timestamp}</span>
             </div>
-            <p>{text}</p>
+            <p className="comment-text">{comment || text}</p>
             <div className="buttons">
-                <button className="edit-btn" onClick={() => editBtn(commentId)} type="button">
+                <button
+                    className="edit-btn"
+                    onClick={() => setShowEditForm(!showEditForm)}
+                    type="button"
+                >
                     Edit
                 </button>
                 <button className="delete-btn" onClick={deleteBtn} type="button">
                     Delete
                 </button>
             </div>
+            <p>{deletedMsg}</p>
+            <form className={showEditForm ? 'active' : ''} onSubmit={(e) => editComment(e)}>
+                <textarea
+                    name="comment"
+                    cols="30"
+                    rows="5"
+                    onChange={(e) => setComment(e.target.value)}
+                    defaultValue={text}
+                ></textarea>
+                <button>Send</button>
+            </form>
         </article>
     );
 }

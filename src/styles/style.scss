@@ -307,7 +307,7 @@ h2 {
     background-color: $light-blue;
     color: $white;
     text-shadow: 0 0 2px black;
-    box-shadow: 0 2px 4px $dark-blue;
+    box-shadow: 0 2px 8px $dark-blue;
     border-radius: 5px;
     .comment {
         margin-bottom: 3em;
@@ -331,11 +331,49 @@ h2 {
                 font-size: 0.8rem;
             }
         }
-        p {
+        .comment-text {
             color: black;
             text-shadow: none;
             font-size: 1.1rem;
             padding: 0.3em 0;
+        }
+        .buttons {
+            margin-top: 2em;
+            button {
+                @extend .post-btns;
+            }
+            .delete-btn {
+                background-color: $red;
+                color: $white;
+                margin-left: 1em;
+            }
+        }
+        p:last-child {
+            @extend .comment-text;
+            color: $red;
+            font-weight: bold;
+            text-shadow: 0 0 3px $dark-blue;
+        }
+        textarea {
+            width: 100%;
+            resize: none;
+            margin-top: 1em;
+            border: 1px solid $dark-blue;
+            padding: 1em;
+            font-weight: bold;
+        }
+        form {
+            display: none;
+            margin-top: 1em;
+            button {
+                @extend .post-btns;
+                background-color: $dark-blue;
+                color: $white;
+                margin-top: 0.5em;
+            }
+        }
+        form.active {
+            display: block;
         }
     }
 }

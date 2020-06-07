@@ -148,7 +148,7 @@ h2 {
   letter-spacing: 1px;
 }
 
-.post-btns, header ul li a button, .action-btns .edit-btn, .action-btns .delete-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button, .delete-confirmation button, .log-in-form button, .create-form button {
+.post-btns, header ul li a button, .action-btns .edit-btn, .action-btns .delete-btn, .action-btns .unpublish-wrapper button, .action-btns .publish-wrapper button, .delete-confirmation button, .log-in-form button, .create-form button, .comments-section .comment .buttons button, .comments-section .comment form button {
   font-weight: bold;
   border: 2px solid #1d3557;
   padding: 0.4em;
@@ -404,8 +404,8 @@ h2 {
   background-color: #c7e3e4;
   color: #f1faee;
   text-shadow: 0 0 2px black;
-  -webkit-box-shadow: 0 2px 4px #1d3557;
-          box-shadow: 0 2px 4px #1d3557;
+  -webkit-box-shadow: 0 2px 8px #1d3557;
+          box-shadow: 0 2px 8px #1d3557;
   border-radius: 5px;
 }
 
@@ -444,10 +444,50 @@ h2 {
   font-size: 0.8rem;
 }
 
-.comments-section .comment p {
+.comments-section .comment .comment-text, .comments-section .comment p:last-child {
   color: black;
   text-shadow: none;
   font-size: 1.1rem;
   padding: 0.3em 0;
+}
+
+.comments-section .comment .buttons {
+  margin-top: 2em;
+}
+
+.comments-section .comment .buttons .delete-btn {
+  background-color: #e63946;
+  color: #f1faee;
+  margin-left: 1em;
+}
+
+.comments-section .comment p:last-child {
+  color: #e63946;
+  font-weight: bold;
+  text-shadow: 0 0 3px #1d3557;
+}
+
+.comments-section .comment textarea {
+  width: 100%;
+  resize: none;
+  margin-top: 1em;
+  border: 1px solid #1d3557;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.comments-section .comment form {
+  display: none;
+  margin-top: 1em;
+}
+
+.comments-section .comment form button {
+  background-color: #1d3557;
+  color: #f1faee;
+  margin-top: 0.5em;
+}
+
+.comments-section .comment form.active {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

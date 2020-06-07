@@ -5,13 +5,15 @@ export default function Comments({ location, match }) {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         const getComments = async () => {
-            const response = await fetch(
-                `http://localhost:4000/api/post/${match.params.id}/comments`,
-            );
-            const commentsData = await response.json();
-            console.log(commentsData);
-            setComments(commentsData);
-            console.log(comments);
+            try {
+                const response = await fetch(
+                    `http://localhost:4000/api/post/${match.params.id}/comments`,
+                );
+                const commentsData = await response.json();
+                setComments(commentsData);
+            } catch (err) {
+                console.log(err);
+            }
         };
         getComments();
     }, [match.params.id]);
