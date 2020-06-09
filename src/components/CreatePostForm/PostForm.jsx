@@ -33,7 +33,8 @@ export default function PostForm({
                 type="text"
                 name="title"
                 required
-                value={state ? state.title : ''}
+                val
+                defaultValue={state ? state.title : ''}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <label htmlFor="text">Content: </label>
