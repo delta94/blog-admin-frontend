@@ -490,4 +490,9 @@ h2 {
 .comments-section .comment form.active {
   display: block;
 }
+
+.tui-toolbar-icons {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
 /*# sourceMappingURL=style.css.map */
