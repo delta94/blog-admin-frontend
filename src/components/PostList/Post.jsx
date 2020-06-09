@@ -41,7 +41,8 @@ export default function Post({
     const editPost = async () => {
         const response = await fetch(`http://localhost:4000/api/post/${_id}`);
         const data = await response.json();
-        const { title, text, published } = data;
+        console.log(data);
+        const { title, text, published, image } = data.foundPost;
         history.push({
             pathname: `/post/${_id}/edit`,
             state: { title, text, published, _id, image },

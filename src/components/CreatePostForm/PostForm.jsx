@@ -33,7 +33,6 @@ export default function PostForm({
                 type="text"
                 name="title"
                 required
-                val
                 defaultValue={state ? state.title : ''}
                 onChange={(e) => setTitle(e.target.value)}
             />

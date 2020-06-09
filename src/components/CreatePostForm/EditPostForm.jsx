@@ -11,6 +11,7 @@ export default function EditPostForm({ location }) {
     const [message, setMessage] = useState('');
     const history = useHistory();
 
+    window.scrollTo(0, 0);
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
