@@ -20,7 +20,7 @@ export default function EditPostForm({ location }) {
                     method: 'put',
                     mode: 'cors',
                     headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
-                    body: JSON.stringify({ title, text, published }),
+                    body: JSON.stringify({ title, text, published, image }),
                 },
             );
             const response = await request.json();
