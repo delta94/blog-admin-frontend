@@ -26,7 +26,7 @@ export default function CreatePostForm({ location }) {
             };
 
             console.log(postData);
-            const request = await fetch('http://localhost:4000/api/post/create', {
+            const request = await fetch('https://julio22b-blog-api-1.glitch.me/api/post/create', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
                 mode: 'cors',

@@ -20,7 +20,7 @@ export default function Post({
         e.preventDefault();
         try {
             const response = await fetch(
-                `http://localhost:4000/api/post/${_id}/update-published-status`,
+                `https://julio22b-blog-api-1.glitch.me/api/post/${_id}/update-published-status`,
                 {
                     method: 'put',
                     mode: 'cors',
@@ -39,7 +39,7 @@ export default function Post({
     };
 
     const editPost = async () => {
-        const response = await fetch(`http://localhost:4000/api/post/${_id}`);
+        const response = await fetch(`https://julio22b-blog-api-1.glitch.me/api/post/${_id}`);
         const data = await response.json();
         console.log(data);
         const { title, text, published, image } = data.foundPost;
@@ -50,7 +50,9 @@ export default function Post({
     };
 
     const openComments = async () => {
-        const response = await fetch(`http://localhost:4000/api/post/${_id}/comments`);
+        const response = await fetch(
+            `https://julio22b-blog-api-1.glitch.me/api/post/${_id}/comments`,
+        );
         const comments = await response.json();
         history.push({ pathname: `/post/${_id}/comments`, state: { comments } });
     };

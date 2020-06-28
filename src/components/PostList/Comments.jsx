@@ -7,7 +7,7 @@ export default function Comments({ location, match }) {
         const getComments = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:4000/api/post/${match.params.id}/comments`,
+                    `https://julio22b-blog-api-1.glitch.me/api/post/${match.params.id}/comments`,
                 );
                 const commentsData = await response.json();
                 setComments(commentsData);

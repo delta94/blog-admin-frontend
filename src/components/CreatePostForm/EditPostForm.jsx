@@ -16,7 +16,7 @@ export default function EditPostForm({ location }) {
         e.preventDefault();
         try {
             const request = await fetch(
-                `http://localhost:4000/api/post/${location.state._id}/update`,
+                `https://julio22b-blog-api-1.glitch.me/api/post/${location.state._id}/update`,
                 {
                     method: 'put',
                     mode: 'cors',

@@ -4,11 +4,14 @@ import authHeader from '../../services/authHeader';
 export default function DeleteConfirmation({ showDeleteConfirm, handleClick, postId }) {
     const [responseMsg, setResponseMsg] = useState('');
     const deletePost = async () => {
-        const request = await fetch(`http://localhost:4000/api/post/${postId}/delete`, {
-            method: 'delete',
-            mode: 'cors',
-            headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
-        });
+        const request = await fetch(
+            `https://julio22b-blog-api-1.glitch.me/api/post/${postId}/delete`,
+            {
+                method: 'delete',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+            },
+        );
         const response = await request.json();
         setResponseMsg(response.message);
     };

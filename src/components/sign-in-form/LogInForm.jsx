@@ -9,7 +9,7 @@ export default function LogInForm() {
     const history = useHistory();
     const logIn = async (e) => {
         e.preventDefault();
-        const request = await fetch('http://localhost:4000/api/log-in', {
+        const request = await fetch('https://julio22b-blog-api-1.glitch.me/api/log-in', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             mode: 'cors',

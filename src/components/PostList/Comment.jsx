@@ -25,7 +25,7 @@ export default function Comment({ postId, commentId, username, timestamp, text }
     const deleteBtn = async () => {
         try {
             const response = await fetch(
-                `http://localhost:4000/api/post/${postId}/comments/${commentId}`,
+                `https://julio22b-blog-api-1.glitch.me/api/post/${postId}/comments/${commentId}`,
                 {
                     method: 'delete',
                     mode: 'cors',
