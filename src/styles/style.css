@@ -1,9 +1,20 @@
+.btn-interaction:hover, .action-btns button:hover, .delete-confirmation button:hover, .log-in-form button:hover, .create-form button:hover, .comments-section button:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.btn-interaction:active, .action-btns button:active, .delete-confirmation button:active, .log-in-form button:active, .create-form button:active, .comments-section button:active {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   line-height: 1.5;
+  font-family: 'Kalam', cursive;
 }
 
 body {
@@ -40,7 +51,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 }
 
 #root .post-list .post figure img {
@@ -116,15 +127,31 @@ header ul {
           align-items: center;
 }
 
+header ul li {
+  position: relative;
+}
+
+header ul li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f1faee;
+  -webkit-transition: width 250ms ease-in;
+  transition: width 250ms ease-in;
+}
+
+header ul li:hover:after {
+  width: 100%;
+}
+
 header ul li a {
   color: #f1faee;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
-}
-
-header ul li a:hover {
-  text-decoration: underline;
 }
 
 header ul li a button {
@@ -135,10 +162,6 @@ header ul li a button {
   padding: 0 !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-}
-
-header ul li a button:hover {
-  text-decoration: underline;
 }
 
 h2 {
@@ -260,10 +283,11 @@ h2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 300px;
-  min-height: 350px;
+  max-width: 325px;
+  min-height: 400px;
   margin: 0 auto;
   padding: 1em 2em;
+  padding-bottom: 2em;
   color: #1d3557;
   letter-spacing: 1px;
   font-size: 1.1rem;
@@ -286,11 +310,17 @@ h2 {
 .log-in-form input, .create-form input {
   border: 2px solid #1d3557;
   padding: 0.25em;
+  font-size: 1.1rem;
 }
 
 .log-in-form button, .create-form button {
   background-color: #1d3557;
   color: #f1faee;
+  font-size: 1.1rem;
+  width: 50%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .create-form {
@@ -444,7 +474,7 @@ h2 {
   font-size: 0.8rem;
 }
 
-.comments-section .comment .comment-text, .comments-section .comment p:last-child {
+.comments-section .comment .comment-text, .comments-section .comment p:last-of-type {
   color: black;
   text-shadow: none;
   font-size: 1.1rem;
@@ -461,10 +491,11 @@ h2 {
   margin-left: 1em;
 }
 
-.comments-section .comment p:last-child {
-  color: #e63946;
+.comments-section .comment p:last-of-type {
+  color: #f1faee;
   font-weight: bold;
-  text-shadow: 0 0 3px #1d3557;
+  margin-top: 0.2em;
+  text-align: center;
 }
 
 .comments-section .comment textarea {
@@ -494,5 +525,9 @@ h2 {
 .tui-toolbar-icons {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
+}
+
+.te-switch-button.wysiwyg {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -4,11 +4,21 @@ $light-blue: #c7e3e4;
 $white: #f1faee;
 $red: #e63946;
 
+.btn-interaction {
+    &:hover {
+        transform: scale(1.03);
+    }
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1.5;
+    font-family: 'Kalam', cursive;
 }
 
 body {
@@ -33,7 +43,7 @@ body {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 3em;
+            margin-bottom: 5em;
             img {
                 width: 85%;
                 border: 1px solid black;
@@ -85,14 +95,27 @@ header {
         min-width: 300px;
         justify-content: space-around;
         align-items: center;
+        li {
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: $white;
+                transition: width 250ms ease-in;
+            }
+            &:hover:after {
+                width: 100%;
+            }
+        }
         li a {
             color: $white;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
-            &:hover {
-                text-decoration: underline;
-            }
             button {
                 @extend .post-btns;
                 background-color: $dark-blue;
@@ -101,9 +124,6 @@ header {
                 font-size: 1.2rem;
                 padding: 0 !important;
                 box-shadow: none !important;
-                &:hover {
-                    text-decoration: underline;
-                }
             }
         }
     }
@@ -125,10 +145,14 @@ h2 {
     letter-spacing: 1px;
     box-shadow: 0 1px 6px $medium-blue;
 }
+
 .action-btns {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    button {
+        @extend .btn-interaction;
+    }
     form {
         margin-top: -29px;
         p {
@@ -186,6 +210,7 @@ h2 {
     transition: transform 150ms ease-in;
     button {
         @extend .post-btns;
+        @extend .btn-interaction;
         margin-left: 2em;
     }
 }
@@ -198,10 +223,11 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 300px;
-    min-height: 350px;
+    max-width: 325px;
+    min-height: 400px;
     margin: 0 auto;
     padding: 1em 2em;
+    padding-bottom: 2em;
     color: $dark-blue;
     letter-spacing: 1px;
     font-size: 1.1rem;
@@ -219,11 +245,16 @@ h2 {
     input {
         border: 2px solid $dark-blue;
         padding: 0.25em;
+        font-size: 1.1rem;
     }
     button {
         @extend .post-btns;
+        @extend .btn-interaction;
         background-color: $dark-blue;
         color: $white;
+        font-size: 1.1rem;
+        width: 50%;
+        align-self: center;
     }
 }
 
@@ -231,6 +262,9 @@ h2 {
     @extend .log-in-form;
     min-width: 95%;
     margin: 0 auto;
+    & > button {
+        @extend .btn-interaction;
+    }
     label {
         margin: 1em 0 0 0;
     }
@@ -309,6 +343,9 @@ h2 {
     text-shadow: 0 0 2px black;
     box-shadow: 0 2px 8px $dark-blue;
     border-radius: 5px;
+    button {
+        @extend .btn-interaction;
+    }
     .comment {
         margin-bottom: 3em;
         background-color: $medium-blue;
@@ -348,11 +385,12 @@ h2 {
                 margin-left: 1em;
             }
         }
-        p:last-child {
+        p:last-of-type {
             @extend .comment-text;
-            color: $red;
+            color: $white;
             font-weight: bold;
-            text-shadow: 0 0 3px $dark-blue;
+            margin-top: 0.2em;
+            text-align: center;
         }
         textarea {
             width: 100%;
@@ -380,4 +418,8 @@ h2 {
 
 .tui-toolbar-icons {
     box-shadow: none !important;
+}
+
+.te-switch-button.wysiwyg {
+    display: none;
 }

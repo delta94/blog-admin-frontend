@@ -5,6 +5,7 @@ export default function Comment({ postId, commentId, username, timestamp, text }
     const [deletedMsg, setdeletedMsg] = useState('');
     const [comment, setComment] = useState('');
     const [showEditForm, setShowEditForm] = useState(false);
+    const [showActionBtns, setShowActionBtns] = useState(true);
     const editComment = async (e) => {
         e.preventDefault();
         const response = await fetch(
@@ -33,6 +34,7 @@ export default function Comment({ postId, commentId, username, timestamp, text }
             );
             const data = await response.json();
             setdeletedMsg(data.message);
+            setShowActionBtns(!showActionBtns);
         } catch (err) {
             console.log(err);
         }
@@ -44,18 +46,20 @@ export default function Comment({ postId, commentId, username, timestamp, text }
                 <span className="date">{timestamp}</span>
             </div>
             <p className="comment-text">{comment || text}</p>
-            <div className="buttons">
-                <button
-                    className="edit-btn"
-                    onClick={() => setShowEditForm(!showEditForm)}
-                    type="button"
-                >
-                    Edit
-                </button>
-                <button className="delete-btn" onClick={deleteBtn} type="button">
-                    Delete
-                </button>
-            </div>
+            {showActionBtns && (
+                <div className="buttons">
+                    <button
+                        className="edit-btn"
+                        onClick={() => setShowEditForm(!showEditForm)}
+                        type="button"
+                    >
+                        Edit
+                    </button>
+                    <button className="delete-btn" onClick={deleteBtn} type="button">
+                        Delete
+                    </button>
+                </div>
+            )}
             <p>{deletedMsg}</p>
             <form className={showEditForm ? 'active' : ''} onSubmit={(e) => editComment(e)}>
                 <textarea

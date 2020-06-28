@@ -44,7 +44,7 @@ function App() {
                     </nav>
                 </header>
                 {currentUser ? (
-                    <h2>Hello {currentUser.username}. Here are your posts. </h2>
+                    <h2>Hello {currentUser.username}.</h2>
                 ) : (
                     <h2>Log in to create and edit your posts.</h2>
                 )}
