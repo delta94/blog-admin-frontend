@@ -17,7 +17,7 @@ function App() {
     };
     return (
         <>
-            <Router>
+            <Router basename="/blog-admin-frontend">
                 <header>
                     <nav>
                         <ul>

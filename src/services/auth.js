@@ -11,7 +11,6 @@ async function logIn(username, password) {
     if (user.token) {
         localStorage.setItem('currentUser', JSON.stringify(user));
     }
-    console.log(user);
     return user;
 }
 
