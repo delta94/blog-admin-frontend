@@ -375,8 +375,8 @@ h2 {
       justify-content: space-around;
   background-color: #457b9d;
   color: #f1faee;
-  -webkit-box-shadow: 0 2px 8px #1d3557;
-          box-shadow: 0 2px 8px #1d3557;
+  -webkit-box-shadow: 0 0px 6px #1d3557;
+          box-shadow: 0 0px 6px #1d3557;
 }
 
 .create-form .radio-btns div input:checked {
@@ -391,7 +391,9 @@ h2 {
 
 .create-form .image-container img {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 2em auto;
+  -webkit-box-shadow: 0 0 6px #1d3557;
+          box-shadow: 0 0 6px #1d3557;
 }
 
 .tui-editor-defaultUI {
@@ -529,5 +531,22 @@ h2 {
 
 .te-switch-button.wysiwyg {
   display: none;
+}
+
+.te-switch-button.markdown.active {
+  padding: 0;
+  opacity: 0.6;
+}
+
+tui-more.tui-toolbar-icons {
+  width: 100%;
+  padding: 0;
+  background-color: #f1faee;
+  font-size: 1rem;
+}
+
+tui-more.tui-toolbar-icons:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 /*# sourceMappingURL=style.css.map */

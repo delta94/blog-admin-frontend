@@ -296,7 +296,7 @@ h2 {
             justify-content: space-around;
             background-color: $medium-blue;
             color: $white;
-            box-shadow: 0 2px 8px $dark-blue;
+            box-shadow: 0 0px 6px $dark-blue;
             input:checked {
                 background-color: $dark-blue;
             }
@@ -306,7 +306,8 @@ h2 {
         display: flex;
         img {
             max-width: 60%;
-            margin: 0 auto;
+            margin: 2em auto;
+            box-shadow: 0 0 6px $dark-blue;
         }
     }
 }
@@ -422,4 +423,19 @@ h2 {
 
 .te-switch-button.wysiwyg {
     display: none;
+}
+
+.te-switch-button.markdown.active {
+    padding: 0;
+    opacity: 0.6;
+}
+
+tui-more.tui-toolbar-icons {
+    &:hover {
+        transform: scale(1);
+    }
+    width: 100%;
+    padding: 0;
+    background-color: $white;
+    font-size: 1rem;
 }
