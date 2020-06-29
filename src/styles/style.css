@@ -527,6 +527,21 @@ h2 {
 .tui-toolbar-icons {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  background-color: #f1faee !important;
+  font-size: 1rem !important;
+  border: none !important;
+}
+
+.tui-toolbar-icons:hover {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+}
+
+.tui-toolbar-icons:active {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
 }
 
 .te-switch-button.wysiwyg {
@@ -536,23 +551,5 @@ h2 {
 .te-switch-button.markdown.active {
   padding: 0;
   opacity: 0.6;
-}
-
-tui-more.tui-toolbar-icons {
-  width: 100% !important;
-  padding: 0 !important;
-  background-color: #f1faee !important;
-  font-size: 1rem !important;
-  border: none !important;
-}
-
-tui-more.tui-toolbar-icons:hover {
-  -webkit-transform: scale(1) !important;
-          transform: scale(1) !important;
-}
-
-tui-more.tui-toolbar-icons:active {
-  -webkit-transform: scale(1) !important;
-          transform: scale(1) !important;
 }
 /*# sourceMappingURL=style.css.map */

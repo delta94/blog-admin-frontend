@@ -419,18 +419,6 @@ h2 {
 
 .tui-toolbar-icons {
     box-shadow: none !important;
-}
-
-.te-switch-button.wysiwyg {
-    display: none;
-}
-
-.te-switch-button.markdown.active {
-    padding: 0;
-    opacity: 0.6;
-}
-
-tui-more.tui-toolbar-icons {
     &:hover {
         transform: scale(1) !important;
     }
@@ -442,4 +430,13 @@ tui-more.tui-toolbar-icons {
     background-color: $white !important;
     font-size: 1rem !important;
     border: none !important;
+}
+
+.te-switch-button.wysiwyg {
+    display: none;
+}
+
+.te-switch-button.markdown.active {
+    padding: 0;
+    opacity: 0.6;
 }
