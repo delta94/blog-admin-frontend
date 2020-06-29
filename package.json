@@ -1,6 +1,6 @@
 {
     "name": "blog-admin-frontend",
-    "homepage": "https://julio22b.github.io/blog-admin-frontend/",
+    "homepage": "https://blog-admin-side.herokuapp.com/",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
