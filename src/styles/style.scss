@@ -1,7 +1,7 @@
-$dark-blue: #1d3557;
-$medium-blue: #457b9d;
-$light-blue: #c7e3e4;
-$white: #f1faee;
+$dark-blue: #2530a7;
+$medium-blue: #365bd4;
+$light-blue: #edf3fd;
+$white: #e2e9df;
 $red: #e63946;
 
 .btn-interaction {
@@ -23,7 +23,7 @@ $red: #e63946;
 
 body {
     padding-bottom: 3em;
-    background-color: rgb(245, 245, 245);
+    background-color: #d9e2f1;
 }
 
 #root {
@@ -37,7 +37,7 @@ body {
         background-color: $light-blue;
         margin-top: 1.5em;
         padding: 1em;
-        box-shadow: 0 2px 8px $medium-blue;
+        box-shadow: 0 0px 40px -15px $medium-blue;
         figure {
             display: flex;
             flex-direction: column;
@@ -88,6 +88,10 @@ header {
     width: 100%;
     padding: 1em 0;
     box-shadow: 0 1px 4px $medium-blue;
+    nav {
+        display: flex;
+        justify-content: flex-end;
+    }
     ul {
         list-style: none;
         display: flex;
@@ -131,7 +135,7 @@ header {
 
 h2 {
     text-align: center;
-    padding: 1em 0;
+    padding: 2em 0;
     color: $dark-blue;
     letter-spacing: 1px;
 }
@@ -143,7 +147,7 @@ h2 {
     cursor: pointer;
     min-width: 60px;
     letter-spacing: 1px;
-    box-shadow: 0 1px 6px $medium-blue;
+    box-shadow: 0 0 40px -10px $medium-blue;
 }
 
 .action-btns {
@@ -232,7 +236,7 @@ h2 {
     letter-spacing: 1px;
     font-size: 1.1rem;
     background-color: $light-blue;
-    box-shadow: 0 2px 8px $medium-blue;
+    box-shadow: 0 0 40px -20px $medium-blue;
     margin-top: 2em;
     p {
         color: $red;
