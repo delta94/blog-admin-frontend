@@ -24,14 +24,11 @@ export default function Comment({ postId, commentId, username, timestamp, text }
 
     const deleteBtn = async () => {
         try {
-            const response = await fetch(
-                `https://julio22b-blog-api-1.glitch.me/api/post/${postId}/comments/${commentId}`,
-                {
-                    method: 'delete',
-                    mode: 'cors',
-                    headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
-                },
-            );
+            const response = await fetch(`/api/post/${postId}/comments/${commentId}`, {
+                method: 'delete',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+            });
             const data = await response.json();
             setdeletedMsg(data.message);
             setShowActionBtns(!showActionBtns);

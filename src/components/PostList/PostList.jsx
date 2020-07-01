@@ -6,7 +6,7 @@ export default function PostList({ currentUser }) {
 
     useEffect(() => {
         const getPosts = async () => {
-            const request = await fetch('https://julio22b-blog-api-1.glitch.me/api/posts');
+            const request = await fetch('/api/posts');
             const posts = await request.json();
             setPosts(posts);
         };

@@ -6,9 +6,7 @@ export default function Comments({ location, match }) {
     useEffect(() => {
         const getComments = async () => {
             try {
-                const response = await fetch(
-                    `https://julio22b-blog-api-1.glitch.me/api/post/${match.params.id}/comments`,
-                );
+                const response = await fetch(`/api/post/${match.params.id}/comments`);
                 const commentsData = await response.json();
                 setComments(commentsData);
             } catch (err) {

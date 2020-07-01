@@ -15,15 +15,12 @@ export default function EditPostForm({ location }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const request = await fetch(
-                `https://julio22b-blog-api-1.glitch.me/api/post/${location.state._id}/update`,
-                {
-                    method: 'put',
-                    mode: 'cors',
-                    headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
-                    body: JSON.stringify({ title, text, published, image }),
-                },
-            );
+            const request = await fetch(`/api/post/${location.state._id}/update`, {
+                method: 'put',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json', Authorization: authHeader() },
+                body: JSON.stringify({ title, text, published, image }),
+            });
             const response = await request.json();
             console.log(response);
             setMessage(response.msg);
