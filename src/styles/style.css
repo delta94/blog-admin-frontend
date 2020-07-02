@@ -562,7 +562,19 @@ h2 {
   opacity: 0.6;
 }
 
-.tui-editor-contents * {
+.tui-editor-contents p,
+.tui-editor-contents ul li,
+.tui-editor-contents ul li a,
+.tui-editor-contents ul li p,
+.tui-editor-contents h1,
+.tui-editor-contents h2,
+.tui-editor-contents h3,
+.tui-editor-contents h4,
+.tui-editor-contents h5,
+.tui-editor-contents h6,
+.tui-editor-contents a,
+.tui-editor-contents span {
   color: #222222 !important;
+  font-weight: normal;
 }
 /*# sourceMappingURL=style.css.map */
